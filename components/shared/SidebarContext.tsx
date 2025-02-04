@@ -6,6 +6,7 @@ interface SidebarContextType {
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
+
 export function SidebarHandler( {children}: {children: React.ReactNode}) {
     const [selectedLabel, setSelectedLabel] = useState<string>("")
     useEffect(() => {
@@ -29,6 +30,10 @@ export function SidebarHandler( {children}: {children: React.ReactNode}) {
             {children}
         </SidebarContext.Provider>
     );
+}
+
+export function useSidebar() {
+    return useContext(SidebarContext);
 }
 
 export function useSidebarContext() {
