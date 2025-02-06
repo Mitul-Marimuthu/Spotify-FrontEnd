@@ -15,19 +15,19 @@ export function ButtonSelection() {
     return (
         <div className="flex flex-col items-center gap-4">
             <Button className="w-40 bg-gray-500 hove:bg-blue-500 text-white"
-            onClick={() => setSelectedButton("Bar")}
+            onClick={ () => {setSelectedButton("Bar"); window.location.reload(); }}
             >
                 Bar Graph
             </Button>
             <Button
                 className="w-40 bg-gray-500 hover:bg-green-500 text-white"
-                onClick={() => setSelectedButton("Pie")}
+                onClick={() => {setSelectedButton("Pie"); window.location.reload();}}
             >
                 Pie Chart
             </Button>
             <Button
                 className="w-40 bg-gray-500 hover:bg-red-500 text-white"
-                onClick={() => setSelectedButton("List")}
+                onClick={() => {setSelectedButton("List"); window.location.reload();}}
             >
                 List
             </Button>
