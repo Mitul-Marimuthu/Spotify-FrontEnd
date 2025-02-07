@@ -22,12 +22,6 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
 //     return response.json()
 // }
 
-export function Charts() {
-     // useSidebarContext();
-    // const { selectedButton } = useButtonContext();
-    // return selectedButton;
-}
-
 interface DataRow {
     label: string;
     value: number;
@@ -250,65 +244,6 @@ export function ListChart({ url, num }: { url: string, num: number }) {
     );
 }
 
-
-// export function ListChart({url} : {url: string}) {
-//     //const [chartData, setChartData] = useState<ListData | null>(null);
-//     const [list, setList] = useState<ListItem[] | null>(null);
-//     //const data = fetchData(url);
-//     console.log("pee");
-//     useEffect(() => {
-//         console.log("poo");
-//         fetchData(url).then((data) => {
-//             if (list === null) {
-//                 setList([{
-//                     album: data.map(row => row.label),
-//                     value: data.map(row => row.value),
-//                     image: data.map(row => row.image),
-//                 }]);
-//             } else {
-//                 setList([...list, {
-//                     album: data.map(row => row.label),
-//                     value: data.map(row => row.value),
-//                     image: data.map(row => row.image),
-//                 }]);
-//             }
-            
-//         });
-//     }, [url, list]);
-
-//     //const temp = chartData?.names
-//     return (
-//         <div className="grid grid-cols-[1fr_3fr_1fr] h-screen gap-4">
-//             <div className="bg-linear-gradient(to right, #1a3c3d, #2f6a73, #2f3b52, #4c2a64) flex items-center justify-center">
-//                 <Layout />
-//             </div>
-//             <div className="bg-linear-gradient(to right, #1a3c3d, #2f6a73, #2f3b52, #4c2a64) flex flex-col gap-6 items-center justify-center">
-//                    <div className="flex flex-col items-center text-white p-6 rounded-lg">
-//             <h1 className="text 4x1 font-bold mb-4"> Top Albums </h1>
-//             <ul className="space-y-4">
-//                 {
-//                    list?.map((item, index) => (
-//                     <li key = {index} className="flex item-center space-x-4 p-4 bg-black/40 rounded-lg">
-//                         <span className="text-3x1 font-bold text-white">#{index+1}</span>
-//                         <Image src={item.image[0]} alt={item.album[0]} className="rounded-lg"/>
-//                         <div>
-//                             <h2 className="text-xl font-semibold">{item.album[0]}</h2>
-//                         </div>
-//                     </li>
-//                    ))
-//                 }
-//             </ul>
-
-//         </div>
-//             </div>
-//             <div className="grid grid-rows-[1fr_1fr] h-screen bg-linear-gradient(to right, #1a3c3d, #2f6a73, #2f3b52, #4c2a64) items-center justify-center gap-4">
-//                 <ButtonBar />
-//                 <MenuComponent />
-//             </div>
-//         </div>
-//     )
-// }
-
 export function PieChart({url} : {url: string}) {
     const [chartData, setChartData] = useState<PieChartData | null>(null);
     useEffect(() => {
@@ -329,18 +264,6 @@ export function PieChart({url} : {url: string}) {
 
       const options = {
         responsive: true,
-        // scales: {
-        //   x: {
-        //     ticks: {
-        //       color: '#FFD700', // Change color of X-axis labels
-        //     },
-        //   },
-        //   y: {
-        //     ticks: {
-        //       color: '#FFD700', // Change color of Y-axis labels
-        //     },
-        //   },
-        // },
         plugins: {
           legend: {
             labels: {
