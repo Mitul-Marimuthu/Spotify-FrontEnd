@@ -13,11 +13,19 @@ def fetch_data(file, numItems, column_name):
     cursor = conn.cursor()
     cursor.execute(f'SELECT * FROM {file} ORDER BY "{column_name}" DESC LIMIT {numItems}')
     rows = cursor.fetchall()
-    print(column_name)
-    data = [{"label": f"{row[0]} - {row[1]}", "value": row[2]} for row in rows]
-    #print(data)
+    images = []
+    for row in rows:
+        album = row[0]
+        cursor.execute(f'SELECT "Image_Info" FROM main WHERE "Album" = ? LIMIT 1', (album,))
+        image = cursor.fetchone()
+        images.append(image[0])
+
+    #print(column_name)
+    data = [{"label": f"{rows[i][0]} - {rows[i][1]}", "value": rows[i][2], "image": images[i]} for i in range(0,len(rows))]
+    print(data)
     conn.close()
     return data
+
 
 #API ROute to get data
 @app.route("/data", methods=["GET"])
